@@ -10,19 +10,7 @@ public class Triangle implements Shape, SideChanging, Serializable {
     private int[] lengthOfSides;
 
     public Triangle(int[] lengthOfSides) {
-        if(lengthOfSides[0] > 0 && lengthOfSides[1] > 0 && lengthOfSides[2] > 0) {
-            if ((lengthOfSides[0] + lengthOfSides[1]) < lengthOfSides[2] &&
-                    lengthOfSides[1] + lengthOfSides[2] < lengthOfSides[0] &&
-                    lengthOfSides[2] + lengthOfSides[0] < lengthOfSides[1]) {
-                System.out.println("Error");
-                this.lengthOfSides = null;
-            }else{
-                this.lengthOfSides = lengthOfSides;
-            }
-        }else{
-            System.out.println("Error");
-            this.lengthOfSides = null;
-        }
+        this.lengthOfSides = lengthOfSides;
     }
 
     @Override
@@ -35,16 +23,15 @@ public class Triangle implements Shape, SideChanging, Serializable {
         lengthOfSides[index] = length;
     }
 
-    public int getInfo(int index){
+    public int getInfo(int index) {
         return lengthOfSides[index];
     }
 
-    public void writeObject(){
-        try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(
-                new String(getClass() + "-" + hashCode()+ ".xml")))){
+    public void writeObject() {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(
+                new String(getClass() + "-" + hashCode() + ".xml")))) {
             oos.writeObject(this);
-        }
-        catch (ExportException e){
+        } catch (ExportException e) {
             System.out.println(e.getMessage());
         } catch (IOException e) {
             e.printStackTrace();

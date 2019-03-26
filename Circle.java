@@ -7,9 +7,9 @@ import java.io.Serializable;
 import java.rmi.server.ExportException;
 
 public class Circle implements Shape, Serializable {
-    int radius;
+    private int radius;
 
-    public Circle(int radius){
+    public Circle(int radius) {
         this.radius = radius;
     }
 
@@ -19,20 +19,19 @@ public class Circle implements Shape, Serializable {
         System.out.println("Radius = " + radius);
     }
 
-    public void setRadius(int radius){
+    public void setRadius(int radius) {
         this.radius = radius;
     }
 
-    public int getRadius(){
+    public int getRadius() {
         return this.radius;
     }
 
-    public void writeObject(){
-        try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(
-                new String(getClass() + "-" + hashCode()+ ".xml")))){
+    public void writeObject() {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(
+                new String(getClass() + "-" + hashCode() + ".xml")))) {
             oos.writeObject(this);
-        }
-        catch (ExportException e){
+        } catch (ExportException e) {
             System.out.println(e.getMessage());
         } catch (IOException e) {
             e.printStackTrace();

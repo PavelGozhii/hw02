@@ -13,33 +13,32 @@ public class Human {
         this.age = age;
     }
 
-    public void setPet(Pet pet){
+    public void setPet(Pet pet) {
         this.pet = pet;
     }
 
-    public Pet getPet(){
+    public Pet getPet() {
         return this.pet;
     }
 
-    class Pet{
+    class Pet {
         private String name;
         private int age;
 
-        Pet(String name, int age){
+        Pet(String name, int age) {
             this.name = name;
             this.age = age;
         }
 
-        // Сетера для возраста нету, потому что возраст так просто не изменить)
         public int getAge() {
             return age;
         }
 
-        public String getName(){
+        public String getName() {
             return name;
         }
 
-        public void setName(){
+        public void setName() {
             this.name = name;
         }
 
@@ -52,11 +51,11 @@ public class Human {
         Planet(String name, String description, int age) {
             this.name = name;
             System.out.println("Planet for people already exist");
-            class Description{
+            class Description {
                 int age;
                 String description;
 
-                Description(int age, String description){
+                Description(int age, String description) {
                     this.age = age;
                     this.description = description;
                 }
@@ -65,12 +64,12 @@ public class Human {
                     return age;
                 }
 
-                public String getDescription(){
+                public String getDescription() {
                     return description;
 
                 }
             }
-            System.out.println(new Description(age, description){
+            System.out.println(new Description(age, description) {
                 @Override
                 public int getAge() {
                     return super.getAge() + 5;
@@ -79,15 +78,15 @@ public class Human {
             }.getAge());
         }
 
-        public String getName(){
+        public String getName() {
             return name;
         }
 
-        public void setName(){
+        public void setName() {
             this.name = name;
         }
 
-        public void setPet(){
+        public void setPet() {
         }
 
     }
