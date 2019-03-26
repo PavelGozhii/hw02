@@ -5,14 +5,19 @@ package com.company;
 
 public class Sort {
 
+    public static void swap(int[] arr, int first, int second) {
+        int temp = arr[first];
+        arr[first] = arr[second];
+        arr[second] = temp;
+    }
+
+
     public static int[] bubleSort(int[] arr) {
         int temp = 0;
         for (int i = arr.length; i > 0; i--) {
             for (int e = 0; e < (i - 1); e++) {
                 if (arr[e] > arr[e + 1]) {
-                    temp = arr[e];
-                    arr[e] = arr[e + 1];
-                    arr[e + 1] = temp;
+                    swap(arr, e, e + 1);
                 }
             }
         }
@@ -26,17 +31,13 @@ public class Sort {
         do {
             for (int i = left; i < right; i++) {
                 if (arr[i] > arr[i + 1]) {
-                    temp = arr[i];
-                    arr[i] = arr[i + 1];
-                    arr[i + 1] = temp;
+                    swap(arr, i, i + 1);
                 }
             }
             right--;
             for (int i = right; i > left; i--) {
                 if (arr[i] < arr[i - 1]) {
-                    temp = arr[i];
-                    arr[i] = arr[i - 1];
-                    arr[i - 1] = temp;
+                    swap(arr, i, i - 1);
                 }
             }
             left++;
@@ -54,9 +55,7 @@ public class Sort {
                     index = e;
                 }
             }
-            buff = arr[index];
-            arr[index] = arr[i];
-            arr[i] = buff;
+            swap(arr, i, index);
         }
         return arr;
     }
@@ -80,9 +79,7 @@ public class Sort {
         for (int i = 0; i < a.length; i++) {
             pos = i;
             while (pos > 0 && a[pos - 1] > a[pos]) {
-                temp = a[pos - 1];
-                a[pos - 1] = a[pos];
-                a[pos] = temp;
+                swap(a, pos, pos-1);
                 pos = pos - 1;
             }
         }

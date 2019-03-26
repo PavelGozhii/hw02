@@ -1,5 +1,6 @@
 package com.company;
 
+
 import jdk.nashorn.internal.ir.annotations.Immutable;
 
 // Task 4 immutable class
@@ -27,11 +28,7 @@ final public class Animal {
         return height;
     }
 
-
-    //As I understand it, we need to change the class field without changing it,
-    // that is, the usual setter does not fit,
-    // it is logical to simply create a new object in this case.
-    public Animal setHeight(double height){
+    public Animal setHeight(double height) {
         return new Animal(this.name, this.age, height);
     }
 }
