@@ -21,3 +21,4 @@ public class Builder {
         return new Square(length);
     }
 }
+
