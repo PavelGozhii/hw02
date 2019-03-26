@@ -1,48 +1,62 @@
 package com.company;
 
 // It is task1
-//Создаем новые напитки через билдер
 
-public class Drink{
+public class Drink {
     private String name;
     private String description;
     private double price;
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public String getDescription(){
+    public String getDescription() {
         return description;
     }
 
-    public double getPrice(){
+    public double getPrice() {
         return price;
     }
 
-    private Drink(Builder builder){
-        this.name = builder.name;
-        this.description = builder.description;
-        this.price = builder.price;
+    protected Drink(String name, String description, double price) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
     }
 
-    static class Builder{
-        private String name;
-        private String description;
-        private double price;
-
-        public Builder(String name, String description){
-            this.name = name;
-            this.description = description;
-        }
-
-        public Builder setPrice(double price){
-            this.price = price;
-            return this;
-        }
-
-        public Drink build(){
-            return new Drink(this);
-        }
+    @Override
+    public String toString(){
+        return name + "\n" + description + "\n" + price;
     }
+}
+
+class DrinkBuilder{
+    private String name = "";
+    private String description = "";
+    private double price  = 0;
+
+    public DrinkBuilder setName(String name){
+        this.name = name;
+        return this;
+    }
+
+    public DrinkBuilder setDescription(String description){
+        this.description = description;
+        return this;
+    }
+
+    public DrinkBuilder setPrice(double price){
+        this.price = price;
+        return this;
+    }
+
+    public Drink build(){
+        return new Drink(name, description, price);
+    }
+
+
+
+
+
 }

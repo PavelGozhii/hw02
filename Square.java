@@ -7,9 +7,9 @@ import java.io.Serializable;
 import java.rmi.server.ExportException;
 
 public class Square implements Shape, Serializable {
-    int side;
+    private int side;
 
-    public Square(int side){
+    public Square(int side) {
         this.side = side;
     }
 
@@ -20,18 +20,18 @@ public class Square implements Shape, Serializable {
     }
 
     public void setSide(int length) {
+        this.side = side;
     }
 
-    public int getSide(){
+    public int getSide() {
         return side;
     }
 
-    public void writeObject(){
-        try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(
-                new String(getClass() + "-" + hashCode()+ ".xml")))){
+    public void writeObject() {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(
+                new String(getClass() + "-" + hashCode() + ".xml")))) {
             oos.writeObject(this);
-        }
-        catch (ExportException e){
+        } catch (ExportException e) {
             System.out.println(e.getMessage());
         } catch (IOException e) {
             e.printStackTrace();
