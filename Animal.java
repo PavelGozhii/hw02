@@ -1,7 +1,7 @@
 package com.company;
 
 
-import jdk.nashorn.internal.ir.annotations.Immutable;
+        import jdk.nashorn.internal.ir.annotations.Immutable;
 
 // Task 4 immutable class
 @Immutable
@@ -32,4 +32,3 @@ final public class Animal {
         return new Animal(this.name, this.age, height);
     }
 }
-
